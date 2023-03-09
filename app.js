@@ -10,7 +10,7 @@ const skillsSection = document.getElementById("skills");
 
 const contactSection = document.getElementById("contact");
 
-function hideSections() {
+function showSection(section) {
 
   aboutSection.style.display = "none";
 
@@ -22,39 +22,27 @@ function hideSections() {
 
   contactSection.style.display = "none";
 
-}
-
-function showSection(section) {
-
-  hideSections();
-
   section.style.display = "block";
 
 }
 
-document.addEventListener("DOMContentLoaded", () => {
+showSection(aboutSection);
 
-  // Display About section on page load
+document.querySelectorAll("nav a").forEach((link) => {
 
-  showSection(aboutSection);
+  link.addEventListener("click", (event) => {
 
-  // Listen for click events on navigation links
+    event.preventDefault();
 
-  const navLinks = document.querySelectorAll("nav a");
+    const href = link.getAttribute("href");
 
-  navLinks.forEach((link) => {
+    const section = document.querySelector(href);
 
-    link.addEventListener("click", (event) => {
-
-      const href = event.target.getAttribute("href");
-
-      const section = document.querySelector(href);
-
-      showSection(section);
-
-    });
+    showSection(section);
 
   });
 
 });
 
+
+  
