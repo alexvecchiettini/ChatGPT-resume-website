@@ -77,6 +77,28 @@ h3 {
 }
 
 
+@keyframes slide-in {
+
+  from {
+
+    transform: translateX(-100%);
+
+  }
+
+  to {
+
+    transform: translateX(0);
+
+  }
+
+}
+
+nav a:hover {
+
+  animation: slide-in 0.5s ease;
+
+}
+
 
 
 
